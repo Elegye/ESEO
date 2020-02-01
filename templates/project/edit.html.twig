@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer un projet{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-outline card-primary">
+      <div class="card-header">
+        <div class="card-title">Editer un nouveau projet</div>
+        <div class="card-tools"> </div>
+      </div>
+      <div class="card-body p-0">
+
+    {{ include('project/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    {{ include('project/_delete_form.html.twig') }}
+
+      </div>
+    </div>
+    <a href="{{ path('project_index') }}">Retour accueil</a>
+  </div>
+</div>
+{% endblock %}

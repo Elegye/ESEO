@@ -1,0 +1,20 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edition d'une classe{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-info">
+      <div class="card-header">
+        <div class="card-title">Edition d'une classe</div>
+        <div class="card-tools">Nombre d'élèves : {{ classroom.users|length }}</div>
+      </div>
+    {{ include('classroom/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    </div>
+    <a href="{{ path('classroom_index') }}">Retour à l'envoyeur</a>
+  </div>
+    {{ include('classroom/_delete_form.html.twig') }}
+</div>
+{% endblock %}

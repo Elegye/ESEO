@@ -1,0 +1,22 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edition profil{% endblock %}
+
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-outline card-primary">
+      <div class="card-header">
+        <div class="card-title">Edition profil</div>
+        <div class="card-tools"> </div>
+      </div>
+      <div class="card-body p-0">
+          {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+      </div>
+      <div class="card-tools">{{ include('user/_delete_form.html.twig') }}</div>
+    </div>
+      <a href="{{ path('user_index') }}"><button type="button" class="btn btn-info">Retour liste des élèves</button></a>
+  </div>
+</div>
+{% endblock %}

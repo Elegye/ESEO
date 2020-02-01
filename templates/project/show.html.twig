@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projet : {{ project.nom }}{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-outline card-primary">
+      <div class="card-header">
+        <div class="card-title">{{project.nom}}</div>
+        <div class="card-tools"> </div>
+      </div>
+      <div class="card-body p-0">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ project.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ project.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ project.description }}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    <a href="{{ path('project_index') }}">back to list</a>
+
+    <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
+
+    {{ include('project/_delete_form.html.twig') }}
+</div>
+{% endblock %}

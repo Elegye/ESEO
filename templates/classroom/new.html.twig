@@ -1,0 +1,21 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Classroom{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-outline card-primary">
+      <div class="card-header">
+        <div class="card-title">Liste des classes</div>
+        <div class="card-tools"> </div>
+      </div>
+      <div class="card-body p-0">
+        {{ include('classroom/_form.html.twig') }}
+      </div>
+    </div>
+  </div>
+</div>
+
+    <a href="{{ path('classroom_index') }}">back to list</a>
+{% endblock %}

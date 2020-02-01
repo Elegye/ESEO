@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+office:
+  path: /office
+  controller: App\Controller\UserController::index

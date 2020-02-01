@@ -1,0 +1,46 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Gestion des projets{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-outline card-primary">
+      <div class="card-header">
+        <div class="card-title">Liste des projets</div>
+        <div class="card-tools"> </div>
+      </div>
+      <div class="card-body p-0">
+        <table class="table">
+          <thead>
+              <tr>
+                  <th>Numéro</th>
+                  <th>Nom</th>
+                  <th>Description</th>
+                  <th>actions</th>
+              </tr>
+          </thead>
+          <tbody>
+          {% for project in projects %}
+              <tr>
+                  <td>{{ project.id }}</td>
+                  <td>{{ project.nom }}</td>
+                  <td>{{ project.description }}</td>
+                  <td>
+                      <a href="{{ path('project_show', {'id': project.id}) }}">Voir</a>
+                      <a href="{{ path('project_edit', {'id': project.id}) }}">Edtier</a>
+                  </td>
+              </tr>
+          {% else %}
+              <tr>
+                  <td colspan="4">Aucun projet enregistré</td>
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+    <a href="{{ path('project_new') }}"><button type="button" class="btn btn-info">Créer un nouveau projet</button></a>
+</div>
+{% endblock %}

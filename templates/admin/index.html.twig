@@ -1,0 +1,38 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Dashboard PP ESEO{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-12">
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>150</h3>
+        <p>Projets en ligne</p>
+      </div>
+      <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+      <a href="{{ path('user_index') }}" class="small-box-footer"></a>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-6 col-12">
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3>44</h3>
+        <p>Elèves inscrits</p>
+      </div>
+      <div class="icon"><i class="fas fa-user-plus"></i></div>
+      <a href="{{ path('user_index') }}" class="small-box-footer"></a>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-6 col-12">
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h3>25€</h3>
+        <p>Coût moyen d'un projet</p>
+      </div>
+      <div class="icon"><i class="fas fa-euro-sign"></i></div>
+      <a href="{{ path('user_index') }}" class="small-box-footer"></a>
+    </div>
+  </div>
+</div>
+{% endblock %}

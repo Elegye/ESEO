@@ -1,0 +1,20 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouvel utilisateur{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-outline card-primary">
+      <div class="card-header">
+        <div class="card-title">Créer nouvel utilisateur</div>
+        <div class="card-tools"> </div>
+      </div>
+      <div class="card-body p-0">
+          {{ include('user/_form.html.twig') }}
+      </div>
+    </div>
+      <a href="{{ path('user_index') }}"><button type="button" class="btn btn-info">Retour liste des élèves</button></a>
+  </div>
+</div>
+{% endblock %}

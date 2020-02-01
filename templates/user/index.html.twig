@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Liste des élèves{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-outline card-primary">
+      <div class="card-header">
+        <div class="card-title">Liste des élèves</div>
+        <div class="card-tools"> </div>
+      </div>
+      <div class="card-body p-0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Roles</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>
+                        <a href="{{ path('user_show', {'id': user.id}) }}">Voir</a>
+                        <a href="{{ path('user_edit', {'id': user.id}) }}">Editer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucun utilisateur enregistré</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+    <a href="{{ path('user_new') }}"><button type="button" class="btn btn-info">Nouvel utilisateur</button></a>
+  </div>
+</div>
+{% endblock %}
