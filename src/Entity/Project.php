@@ -25,6 +25,7 @@ class Project
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projects")
+     * @ORM\JoinTable(name="project_user")
      */
     private $users;
 

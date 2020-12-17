@@ -4,6 +4,7 @@
 
 {% block body %}
 <div class="row">
+  {% if is_granted('ROLE_ADMIN') %}
   <div class="col-md-12">
     <div class="card card-outline card-primary">
       <div class="card-header">
@@ -28,7 +29,7 @@
                   <td>{{ project.description }}</td>
                   <td>
                       <a href="{{ path('project_show', {'id': project.id}) }}">Voir</a>
-                      <a href="{{ path('project_edit', {'id': project.id}) }}">Edtier</a>
+                      <a href="{{ path('project_edit', {'id': project.id}) }}">Editer</a>
                   </td>
               </tr>
           {% else %}
@@ -37,10 +38,13 @@
               </tr>
           {% endfor %}
           </tbody>
-      </table>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+  {% else %}
+  {{ dump(projects) }}
+  {% endif %}
     <a href="{{ path('project_new') }}"><button type="button" class="btn btn-info">Créer un nouveau projet</button></a>
 </div>
 {% endblock %}

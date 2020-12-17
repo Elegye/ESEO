@@ -20,9 +20,18 @@ class ProjectController extends AbstractController
      */
     public function index(ProjectRepository $projectRepository): Response
     {
-        return $this->render('project/index.html.twig', [
-            'projects' => $projectRepository->findAll(),
-        ]);
+      dump($this->getUser()->getId());
+      if($this->isGranted('ROLE_ADMIN')){
+          $projects = $projectRepository->findAll()
+      }
+      elseif ($this->isGranted('ROLE_ELEVE')) {
+          $prpjects = $projectRepository->findByUsers($this->getUser());
+      }
+
+      return $this->render('project/index.html.twig', [
+          'projects' => $projects,
+      ]);
+
     }
 
     /**

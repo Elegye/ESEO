@@ -149,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ path('project_index') }}" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
               <p>
-                Gestion projets
+                {% if is_granted('ROLE_ADMIN') %} Gestion projets {% else %} Mes projets {% endif %}
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
